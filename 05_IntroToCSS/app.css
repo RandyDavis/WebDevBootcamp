@@ -1,11 +1,19 @@
 h1 {
     color: #54206E;
-}
+    /*border-color: #purple;*/
+    /*border-width: 5px;*/
+    /*border-style: solid;*/
 
-li {
-    color: rgb(255,201,255);
+    border: 2px solid rgb(255, 100, 80);
 }
 
 h4 {
-    color: rgba(0, 200, 100, .2);
+    background: rgb(255, 100, 80);
+}
+
+body {
+    background: pink;
+    /*background: url("http://bringingdesignhome.com/files/2011/03/woodgrain-3.jpg");*/
+    /*background-repeat:no-repeat;*/
+    /*background-size: cover;*/
 }
