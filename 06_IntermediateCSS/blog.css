@@ -8,8 +8,10 @@ font: source sans pro
 
 */
 .wrapper {
-    margin: auto;
-    border: 10px solid #bdc3c7;
+    margin: 20px auto;
+    border: 20px solid #bdc3c7;
+    max-width: 700px;
+    width: 80%;
 }
 
 hr {
