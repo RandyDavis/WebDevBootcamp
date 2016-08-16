@@ -16,7 +16,7 @@ while (test1 < 20) {
 
 
 // Print all even numbers between 10 and 40
-var test2 = 1;
+var test2 = 10;
 
 while(test2 <= 40) {
     if(test2 %2 === 0) {
