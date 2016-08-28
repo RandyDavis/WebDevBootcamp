@@ -93,10 +93,13 @@ startGame();
 /* *********** COLT VERSION **************** */
 var p1Btn = document.querySelector("#p1");
 var p2Btn = document.querySelector("#p2");
+var resetBtn = document.querySelector("#reset");
 var p1Score = 0;
 var p2Score = 0;
 var p1ScoreDisplay = document.querySelector("#p1Score");
 var p2ScoreDisplay = document.querySelector("#p2Score");
+var playingToSelect = document.querySelector("#playTo");
+var playingToDisplay = document.querySelector("#playingTo");
 var gameOver = false;
 var winningScore = 5;
 
@@ -104,6 +107,7 @@ p1Btn.addEventListener("click", function () {
     if (!gameOver) {
         p1Score++;
         if (p1Score === winningScore) {
+            p1ScoreDisplay.classList.add("winner");
             gameOver = true;
         }
         p1ScoreDisplay.textContent = p1Score;
@@ -114,8 +118,28 @@ p2Btn.addEventListener("click", function () {
     if (!gameOver) {
         p2Score++;
         if (p2Score === winningScore) {
+            p2ScoreDisplay.classList.add("winner");
             gameOver = true;
         }
         p2ScoreDisplay.textContent = p2Score;
     }
 })
+
+resetBtn.addEventListener("click", reset);
+
+playingToSelect.addEventListener("change", function () {
+    console.log("input changed!");
+    playingToDisplay.textContent = playingToSelect.valueAsNumber;
+    winningScore = playingToSelect.valueAsNumber;
+    reset();
+})
+
+function reset () {
+    p1Score = 0;
+    p2Score = 0;
+    p1ScoreDisplay.textContent = p1Score;
+    p2ScoreDisplay.textContent = p2Score;
+    p1ScoreDisplay.classList.remove("winner");
+    p2ScoreDisplay.classList.remove("winner");
+    gameOver = false;
+}
