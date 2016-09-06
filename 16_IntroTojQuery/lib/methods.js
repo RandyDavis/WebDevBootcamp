@@ -12,3 +12,22 @@ $('li').text();
 $("ul").html();
 $("ul").html("<li>I hacked your UL!</li><li>Rusty the dog is still adorable</li>");
 
+// .attr() -- allows you to get and change attributes of html elements
+$("img").css("width");
+$("img").css("width", "200px");
+$("img:first-of-type").attr("src", "https://c3.staticflickr.com/3/2418/2243463214_f32ab004af_b.jpg");
+
+
+// $("input").attr("type");
+// $("input").attr("type", "color");
+// $("input").attr("type", "checkbox");
+// $("input").attr("type", "text");
+// $("img").attr("src", "https://c3.staticflickr.com/3/2418/2243463214_f32ab004af_b.jpg");
+$("img").last().attr("src", "https://c3.staticflickr.com/3/2418/2243463214_f32ab004af_b.jpg");
+
+
+// .val() -- gives you the value of an element selected or can be passed arguments to change the value
+$("input").val();
+$("input").val("Randy Davis");
+
+$("select").val();  // Ostrich
