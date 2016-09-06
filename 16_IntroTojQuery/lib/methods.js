@@ -10,7 +10,7 @@ $('li').text();
 
 // .html()  -- works like .html() in vanilla JS
 $("ul").html();
-$("ul").html("<li>I hacked your UL!</li><li>Rusty the dog is still adorable</li>");
+//$("ul").html("<li>I hacked your UL!</li><li>Rusty the dog is still adorable</li>");
 
 // .attr() -- allows you to get and change attributes of html elements
 $("img").css("width");
@@ -31,3 +31,18 @@ $("input").val();
 $("input").val("Randy Davis");
 
 $("select").val();  // Ostrich
+
+
+// .addClass() -- allows you to add classes to elements
+$('h1').addClass("correct");
+
+// .removeClass() -- allows you to remove classes from elements
+$('h1').removeClass("correct");
+$("li").addClass("wrong");
+$("li").removeClass("wrong");
+$("li").addClass("correct");
+
+// .toggleClass() -- checks if element does have the specified class or not and either adds or removes it
+$("li").toggleClass("correct");
+$("li").first().toggleClass("done");
+$("li").toggleClass("done");
