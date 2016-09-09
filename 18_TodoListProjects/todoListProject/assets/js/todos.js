@@ -15,6 +15,7 @@ $("ul").on('click', 'span', function (event) {
     event.stopPropagation();
 })
 
+// Add todo
 // add listener to input
 $("input[type='text']").keypress(function (event) {
     if (event.which === 13) {
