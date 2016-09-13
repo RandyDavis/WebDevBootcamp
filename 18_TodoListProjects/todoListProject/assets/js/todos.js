@@ -26,9 +26,3 @@ $("input[type='text']").keypress(function (event) {
         $("ul").append("<li><span><i class='fa fa-trash'></i></span> " + todoText) + "</li>";
     }
 });
-
-
-// Animate delete icons on hover
-// $("li").onmouseover(function () {
-//     $(this).
-// })
