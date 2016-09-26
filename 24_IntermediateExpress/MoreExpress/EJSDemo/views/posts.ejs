@@ -1,0 +1,16 @@
+<h1>The Posts Page</h1>
+
+<strong>Via for()</strong>
+<% for(var i = 0; i < posts.length; i++) { %>
+<li>
+        <%= posts[i].title %> - <strong><%= posts[i].author %></strong>
+    </li>
+<% } %>
+<br>
+
+<strong>Via forEach()</strong>
+<% posts.forEach(function(post) { %>
+    <li>
+        <%= post.title %> - <strong><%= post.author %></strong>
+    </li>
+<% }) %>

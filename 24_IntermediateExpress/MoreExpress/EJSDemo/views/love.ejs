@@ -1,3 +1,8 @@
-<h1>You fell in love with: <%= thingVar %></h1>
+<h1>You fell in love with: <%= thingVar.toUpperCase() %></h1>
 
+<% if (thingVar.toLowerCase() === "randy") { %>
+    <p>GOOD CHOICE!  RANDY IS THE BEST!</p>
+<% } else { %>
+    <p>BAD CHOICE! YOU SHOULD HAVE SAID RANDY!</p>
+<% } %>
 <p>P.S. this is hte love.ejs file!</p>
