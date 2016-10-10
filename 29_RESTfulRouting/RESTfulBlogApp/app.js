@@ -1,12 +1,14 @@
-var express     = require('express'),
-    mongoose    = require('mongoose'),
-    bodyParser  = require('body-parser'),
+var express         = require('express'),
+    mongoose        = require('mongoose'),
+    bodyParser      = require('body-parser'),
+    methodOverride  = require('method-override'),
     app = express();
 
 // APP CONFIG
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 mongoose.connect("mongodb://localhost/restful_blog_app");
 
 // MONGOOSE/MODEL CONFIG
@@ -70,6 +72,29 @@ app.get('/blogs/:id', function (req, res) {
         }
     });
 });
+
+// EDIT ROUTE
+app.get('/blogs/:id/edit', function(req, res) {
+    Blog.findById(req.params.id, function (err, foundBlog) {
+        if (err) {
+            res.redirect('/blogs');
+        } else {
+            res.render('edit', { blog: foundBlog });
+        }
+    });
+});
+
+// UPDATE ROUTE
+app.put('/blogs/:id', function (req, res) {
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function (err, updatedBlog) {
+        if (err) {
+            res.redirect('/blogs');
+        } else {
+            res.redirect('/blogs/' + req.params.id);
+        }
+    });
+});
+
 
 app.listen(3000, function () {
     console.log("Server is running on Port 3000...");
