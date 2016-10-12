@@ -1,0 +1,20 @@
+<h1>Index Page</h1>
+
+<% children.forEach(function(child) { %>
+    <div>
+        <%= child.name %>
+    </div>
+    <div>
+        <%= child.age %>
+    </div>
+    <div>
+        <img src="<%= child.image %>" alt="">
+    </div>
+    <div>
+        <%= child.funFact %>
+    </div>
+    <div>
+        <%= child.created %>
+    </div>
+
+<% }) %>
