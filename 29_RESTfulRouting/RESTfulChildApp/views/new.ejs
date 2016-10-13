@@ -1,0 +1,31 @@
+<% include partials/header.ejs %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>New Child</h1>
+            <form action="/children" method="post">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" name="child[name]" placeholder="name">
+                </div>
+                <div class="form-group">
+                    <label for="">Image URL</label>
+                    <input type="text" class="form-control" name="child[image]" placeholder="image url">
+                </div>
+                <div class="form-group">
+                    <label for="">Age</label>
+                    <input type="text" class="form-control" name="child[age]" placeholder="age">
+                </div>
+                <div class="form-group">
+                    <label for="">Fun Fact</label>
+                    <textarea class="form-control" name="child[funFact]" placeholder="Please provide a fun fact..."></textarea>
+                </div>
+                <button class="btn btn-success" type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<% include partials/footer.ejs %>

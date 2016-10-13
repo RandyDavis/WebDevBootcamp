@@ -1,0 +1,32 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="text-center">Awesome Children</h1>
+            <% children.forEach(function(child) { %>
+            <div class="media">
+                <div class="media-left">
+                    <img class="media-object img-thumbnail" src="<%= child.image %>" alt="">
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        <%= child.name %> - <%= child.age %>
+                    </h4>
+                    <p>
+                        <%- child.funFact %> ...
+                    </p>
+                    <small>
+                        Date Added: <%= child.created.toDateString() %>
+                    </small>
+                    <br><br>
+                    <a href="/children/<%= child._id %>" class="btn btn-primary">View More</a>
+                </div>
+            </div>
+            <hr>
+            <% }) %>
+        </div>
+
+    </div>
+</div>
+
+<% include partials/footer.ejs %>
