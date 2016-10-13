@@ -24,12 +24,12 @@ var childSchema = new mongoose.Schema({
 
 var Child = mongoose.model("Child", childSchema);
 // Starter Child Data...to be commented out after running first time
-Child.create({
-    name: "Randy",
-    image: "http://graphics.fansonly.com/photos/schools/bay/sports/m-footbl/auto_headshot/p-davis.jpg",
-    age: 37,
-    funFact: "He loves to code in his free time!"
-});
+// Child.create({
+//     name: "Jimmy",
+//     image: "https://farm1.staticflickr.com/111/274485967_bd199008fa.jpg",
+//     age: 6,
+//     funFact: "Little Jimmy has style for days in his favorite neon yellow hoodie with the prep look happening!"
+// });
 
 
 // ------------ RESTful ROUTES ----------------------
@@ -51,29 +51,72 @@ app.get('/children', function (req, res) {
 
 
 // NEW ROUTE
+app.get('/children/new', function (req, res) {
+    res.render('new');
+})
 
 
 // CREATE ROUTE
-
-
+app.post('/children', function (req, res) {
+    // Create child
+    req.body.child.body = req.sanitize(req.body.child.body);
+    Child.create(req.body.child, function (err, newChild) {
+        if (err) {
+            res.render('new');
+        } else {
+            res.redirect('/children');
+        }
+    });
+});
 
 // SHOW  ROUTE
+app.get('/children/:id', function (req, res) {
+    Child.findById(req.params.id, function (err, foundChild) {
+        if (err) {
+            res.redirect('/children');
+        } else {
+            res.render('show', { child: foundChild });
+        }
+    });
+});
 
 
 // EDIT ROUTE
+app.get('/children/:id/edit', function (req, res) {
+    Child.findById(req.params.id, function (err, foundChild) {
+        if (err) {
+            res.redirect('/children');
+        } else {
+            res.render('edit', { child: foundChild });
+        }
+    });
+});
 
 
 // UPDATE ROUTE
-
+app.put('/children/:id', function (req, res) {
+    req.body.child.body = req.sanitize(req.body.child.body)
+    Child.findByIdAndUpdate(req.params.id, req.body.child, function (err, updatedChild) {
+        if (err) {
+            res.redirect('/children');
+        } else {
+            res.redirect('/children/' + req.params.id);
+        }
+    });
+});
 
 
 // DELETE ROUTE
-
-
-
-
-
-
+app.delete('/children/:id', function (req, res) {
+    Child.findByIdAndRemove(req.params.id, function (err) {
+        if (err) {
+            res.redirect('/children');
+        } else {
+            console.log("Delete Successful");
+            res.redirect('/children');
+        }
+    });
+});
 
 // ----------------END RESTful ROUTES ---------------
 
