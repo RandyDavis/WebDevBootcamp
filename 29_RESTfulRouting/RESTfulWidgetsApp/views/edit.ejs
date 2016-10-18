@@ -1,0 +1,38 @@
+<% include partials/header.ejs %>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>Edit Widget</h1>
+            <form action="/widgets/<%= widget._id %>?_method=PUT" method="post">
+                <div class="form-group">
+                    <label for="">Name</label>
+                    <input type="text" class="form-control" name="widget[name]" value="<%= widget.name %>">
+                </div>
+                <div class="form-group">
+                    <label for="">Description</label>
+                    <textarea class="form-control" name="widget[description]"><%= widget.description %></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="">In Stock?</label>
+                    <select class="form-control" name="widget[inStock]">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Giga Watts</label>
+                    <input type="text" class="form-control" name="widget[gigaWatts]" value="<%= widget.gigaWatts %>">
+                </div>
+                <div class="form-group">
+                    <label for="">Speed</label>
+                    <input type="text" class="form-control" name="widget[speed]" value="<%= widget.speed %>">
+                </div>
+                <button class="btn btn-success" type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<% include partials/footer.ejs %>
