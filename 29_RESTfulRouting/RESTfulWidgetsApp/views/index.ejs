@@ -1,0 +1,42 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1 class="text-center">Widget Inventory</h1>
+            <div class="table-responsive">
+
+
+                <table class="table table-hover">
+                    <tr>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>In Stock</th>
+                                <th>Giga Watts</th>
+                                <th>Speed</th>
+                                <th>Date Received</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% widgets.forEach(function(widget) { %>
+                                <tr>
+                                    <td><%= widget.name %></td>
+                                    <td><%= widget.description %></td>
+                                    <td><%= widget.inStock %></td>
+                                    <td><%= widget.gigaWatts %></td>
+                                    <td><%= widget.speed %></td>
+                                    <td><%= widget.created %></td>
+                                    <td><a href="/widgets/<%= widget._id %>" class="btn btn-primary">View More</a></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer.ejs %>
