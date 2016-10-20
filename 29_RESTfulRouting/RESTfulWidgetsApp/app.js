@@ -73,7 +73,7 @@ app.get('/widgets/:id', function (req, res) {
     Widget.findById(req.params.id, function(err, foundWidget) {
         if (err) {
             console.log("Error!");
-            res.render('/widgets');
+            res.redirect('/widgets');
         } else {
             res.render('show', { widget: foundWidget });
         }
