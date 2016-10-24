@@ -1,0 +1,20 @@
+.callout.primary {
+    height: 200px;
+    /*margin-top: 20px;*/
+}
+
+.callout.primary h1 {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.info-name {
+    color: white;
+    font-weight: bold;
+    background-color: #64b3f4;
+    border: 1px solid gray;
+}
+
+.info-data {
+    border: 1px solid gray;
+}
