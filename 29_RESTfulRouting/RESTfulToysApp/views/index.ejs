@@ -1,0 +1,36 @@
+<% include partials/header.ejs %>
+
+<div class="callout primary text-center">
+    <h1>Toy Chest Island</h1>
+    <h5>The Best Imaginable Live Here</h5>
+</div>
+<div class="row small-8 columns text-center">
+    <% toys.forEach(function(toy) { %>
+        <h3 class="text-center"><%= toy.name %></h3>
+        <img class="thumbnail" src="<%= toy.image %>" alt="Picture of <%= toy.name %>">
+        <p class="text-center"><strong>Description:</strong> <%= toy.description %></p>
+        <div class="callout">
+            <table>
+                <tr>
+                    <td class="info-name text-right">Price</td>
+                    <td class="info-data"><%= toy.price %></td>
+                </tr>
+                <tr>
+                    <td class="info-name text-right">Rating</td>
+                    <td class="info-data"><%= toy.rating %></td>
+                </tr>
+                <tr>
+                    <td class="info-name text-right">In Stock</td>
+                    <td class="info-data"><%= toy.inStock ? "yes" : "no" %></td>
+                </tr>
+                <tr>
+                    <td class="info-name text-right">Date Added</td>
+                    <td class="info-data"><%= toy.created.toDateString() %></td>
+                </tr>
+            </table>
+        </div>
+    <hr>
+    <% }) %>
+</div>
+
+<% include partials/footer.ejs %>

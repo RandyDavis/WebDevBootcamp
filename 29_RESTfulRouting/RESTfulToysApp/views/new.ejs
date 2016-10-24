@@ -1,0 +1,34 @@
+<% include partials/header.ejs %>
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1 class="text-center">New Toy Page</h1>
+        <form action="/toys" method="post">
+            <label>Name
+                <input type="text" name="toy[name]" placeholder="Name">
+            </label>
+            <label>Image URL
+                <input type="text" placeholder="Image URL" name="toy[image]">
+            </label>
+            <label>Description
+                <textarea name="toy[description]" placeholder="Toy Description"></textarea>
+            </label>
+            <label>Price
+                <input type="text" name="toy[price]" placeholder="Toy Price">
+            </label>
+            <label>In Stock
+                <select name="toy[inStock]">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </label>
+            <label>Rating
+                <input type="number" min="1" max="10" name="toy[rating]" placeholder="Toy Rating">
+            </label>
+            <button type="submit" class="button success">Save</button>
+            <a href="/toys" class="button warning">Cancel</a>
+        </form>
+    </div>
+</div>
+
+<% include partials/footer.ejs %>
