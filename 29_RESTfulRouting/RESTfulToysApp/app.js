@@ -53,11 +53,21 @@ app.get('/toys', function (req, res) {
 
 
 // NEW ROUTE
-
-
+app.get('/toys/new', function (req, res) {
+    res.render('new');
+});
 
 // CREATE ROUTE
-
+app.post('/toys', function (req, res) {
+    Toy.create(req.body.toy, function (err, newToy) {
+        if (err) {
+            console.log("Error!");
+            res.render('new');
+        } else {
+            res.redirect('/toys');
+        }
+    });
+});
 
 
 // SHOW ROUTE
