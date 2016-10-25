@@ -1,0 +1,34 @@
+<% include partials/header.ejs %>
+
+<div class="row">
+    <div class="small-12 columns">
+        <h1 class="text-center">Edit: <%= toy.name %></h1>
+        <form action="/toys/<%= toy._id %>?_method=PUT" method="post">
+            <label>Name
+                <input type="text" name="toy[name]" value="<%= toy.name %>">
+            </label>
+            <label>Image URL
+                <input type="text" name="toy[image]" value="<%= toy.image %>">
+            </label>
+            <label>Description
+                <textarea name="toy[description]"><%= toy.description %></textarea>
+            </label>
+            <label>Price
+                <input type="text" name="toy[price]" value="<%= toy.price %>">
+            </label>
+            <label>In Stock
+                <select name="toy[inStock]" value="<%= toy.inStock %>">
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+            </label>
+            <label>Rating
+                <input type="number" min="1" max="10" name="toy[rating]" value="<%= toy.rating %>">
+            </label>
+            <button type="submit" class="button success">Update</button>
+            <a href="/toys/<%= toy._id %>" class="button warning">Cancel</a>
+        </form>
+    </div>
+</div>
+
+<% include partials/footer.ejs %>
