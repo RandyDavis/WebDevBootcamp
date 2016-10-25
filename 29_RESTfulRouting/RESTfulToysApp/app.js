@@ -71,21 +71,51 @@ app.post('/toys', function (req, res) {
 
 
 // SHOW ROUTE
-
+app.get('/toys/:id', function (req, res) {
+    Toy.findById(req.params.id, function (err, foundToy) {
+        if (err) {
+            res.render('index');
+        } else {
+            res.render('show', {toy: foundToy});
+        }
+    });
+});
 
 
 // EDIT ROUTE
-
+app.get('/toys/:id/edit', function (req, res) {
+    Toy.findById(req.params.id, function (err, foundToy) {
+        if (err) {
+            res.render('index');
+        } else {
+            res.render('edit', {toy: foundToy});
+        }
+    });
+});
 
 
 // UPDATE ROUTE
-
-
+app.put('/toys/:id', function (req, res) {
+    req.body.toy.body = req.sanitize(req.body.toy.body);
+    Toy.findByIdAndUpdate(req.params.id, req.body.toy, function (err, updatedToy) {
+        if (err) {
+            res.redirect('/toys');
+        } else {
+            res.redirect('/toys/' + req.params.id);
+        }
+    });
+});
 
 // DELETE ROUTE
-
-
-
+app.delete('/toys/:id', function (req, res) {
+    Toy.findByIdAndRemove(req.params.id, function (err) {
+        if (err) {
+            res.redirect('/toys');
+        } else {
+            res.redirect('/toys');
+        }
+    });
+});
 
 //------------------- END RESTful ROUTES------------------------------
 
