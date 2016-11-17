@@ -18,7 +18,7 @@ var data = [
         image: "https://farm8.staticflickr.com/7148/6622139405_9753433ff9.jpg",
         description: "It's camping....in the desert."
     },
-]
+];
 
 function seedDB () {
     // REMOVE ALL CAMPGROUNDS
