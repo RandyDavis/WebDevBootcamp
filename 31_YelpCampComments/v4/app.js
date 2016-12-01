@@ -94,6 +94,29 @@ app.get('/campgrounds/:id/comments/new', function(req, res) {
     })
 });
 
+app.post('/campgrounds/:id/comments', function (req, res) {
+    // 1 - lookup campground using ID
+    Campground.findById(req.params.id, function (err, campground) {
+        if (err) {
+          console.log(err);
+            res.redirect("/campgrounds");
+        } else {
+            // 2 - create new comment
+            Comment.create(req.body.comment, function (err, comment) {
+                if (err) {
+                  console.log(err);
+                } else {
+                    // 3 - connect new comment to campground
+                    campground.comments.push(comment);
+                    campground.save();
+                    // 4 - redirect campground show page
+                    res.redirect("/campgrounds/" + campground._id);
+                }
+            });
+        }
+    })
+})
+
 
 app.listen(3000, function () {
     console.log("Yelp Camp Server is running...");
