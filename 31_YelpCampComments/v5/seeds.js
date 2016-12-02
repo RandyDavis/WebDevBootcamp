@@ -17,7 +17,7 @@ var data = [
         name: "Sandman's Way",
         image: "https://farm8.staticflickr.com/7148/6622139405_9753433ff9.jpg",
         description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt distinctio dolore doloremque dolores earum est, molestias nesciunt numquam obcaecati perferendis quibusdam quidem sequi temporibus tenetur unde. Adipisci, consectetur consequatur debitis dolor error explicabo fugit labore, maiores nihil nulla obcaecati, quaerat quia similique sint voluptas! Atque blanditiis id impedit incidunt magni maxime modi obcaecati quae repudiandae!"
-    },
+    }
 ];
 
 function seedDB () {

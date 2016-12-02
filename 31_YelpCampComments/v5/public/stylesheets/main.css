@@ -1,5 +1,6 @@
 .thumbnail img {
     width: 100%;
+    min-height: 195px;
 }
 
 .thumbnail {
