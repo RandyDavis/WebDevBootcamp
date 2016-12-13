@@ -2,7 +2,7 @@ var express                 = require('express'),
     mongoose                = require('mongoose'),
     passport                = require('passport'),
     bodyParser              = require('body-parser'),
-    LocalStragegy           = require('passport-local'),
+    LocalStrategy           = require('passport-local'),
     passportLocalMongoose   = require('passport-local-mongoose'),
     User                    = require('./models/user');
 
@@ -24,6 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Important methods: responsible for encoding and decoding data from user session
+passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
@@ -62,7 +63,18 @@ app.post('/register', function (req, res) {
     })
 })
 
+// --------------- LOGIN ROUTES ----------------------
+// Render login form
+app.get('/login', function (req, res) {
+    res.render('login');
+});
+// Login Logic
+app.post('/login', passport.authenticate("local", {
+    successRedirect: "/secret",
+    failureRedirect: "/login"
+}), function (req, res) {
 
+})
 
 
 
